@@ -6,6 +6,8 @@ function SpicyFoodList() {
 
   function handleAddFood() {
     const newFood = getNewRandomSpicyFood();
+    const newFoodArray=[...foods,newFood];
+    setFoods(newFoodArray);
     console.log(newFood);
   }
 
@@ -14,6 +16,12 @@ function SpicyFoodList() {
       {food.name} | Heat: {food.heatLevel} | Cuisine: {food.cuisine}
     </li>
   ));
+
+  function handleAddFood(id){
+    const newFoodArray=foods.filter((foods)=>foods.id !== id)
+    setFoods(newFoodArray);
+  }
+  
 
   return (
     <div>
